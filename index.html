@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Smart Class Book | Sandipani Higher Secondary School</title>
+
+  <meta name="description"
+    content="Sandipani Higher Secondary School की Smart Class Book - आधुनिक, आसान और स्मार्ट पढ़ाई का नया तरीका।">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", "Noto Sans Devanagari", sans-serif;
+      background: #f7faff;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 18px rgba(0,0,0,0.08);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #1261d6;
+      font-weight: 800;
+      font-size: 19px;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg,#1261d6,#27b5ff);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 21px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #26334d;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: #1261d6;
+    }
+
+    .nav-btn {
+      background: #1261d6 !important;
+      color: white !important;
+      padding: 10px 18px;
+      border-radius: 25px;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #1261d6;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 150px 25px 80px;
+      background:
+        radial-gradient(circle at 90% 20%, rgba(39,181,255,.20), transparent 30%),
+        linear-gradient(135deg,#eef7ff,#ffffff);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 30px;
+      background: #e1f1ff;
+      color: #1261d6;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px,6vw,68px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #101b32;
+    }
+
+    .hero h1 span {
+      color: #1261d6;
+    }
+
+    .hero p {
+      color: #56647d;
+      font-size: 17px;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: #1261d6;
+      color: white;
+      box-shadow: 0 10px 25px rgba(18,97,214,.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #0d4eaf;
+    }
+
+    .btn-secondary {
+      border: 2px solid #1261d6;
+      color: #1261d6;
+    }
+
+    .btn-secondary:hover {
+      background: #1261d6;
+      color: white;
+    }
+
+    /* BOOK MOCKUP */
+    .book-area {
+      display: flex;
+      justify-content: center;
+      perspective: 1000px;
+    }
+
+    .book {
+      width: 330px;
+      height: 430px;
+      border-radius: 12px 22px 22px 12px;
+      background: linear-gradient(135deg,#1261d6,#24b5ff);
+      box-shadow: 25px 30px 50px rgba(19,71,135,.28);
+      transform: rotateY(-12deg) rotateZ(2deg);
+      position: relative;
+      padding: 30px;
+      color: white;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: rotateY(-12deg) rotateZ(2deg) translateY(0); }
+      50% { transform: rotateY(-12deg) rotateZ(2deg) translateY(-15px); }
+    }
+
+    .book::before {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: rgba(255,255,255,.5);
+    }
+
+    .book-small {
+      font-size: 13px;
+      opacity: .9;
+    }
+
+    .book h2 {
+      font-size: 34px;
+      margin-top: 80px;
+      line-height: 1.2;
+    }
+
+    .book p {
+      color: white;
+      margin-top: 15px;
+    }
+
+    .book-icon {
+      position: absolute;
+      bottom: 25px;
+      right: 25px;
+      font-size: 70px;
+    }
+
+    /* SECTION */
+    section {
+      padding: 90px 25px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: #1261d6;
+      font-weight: 700;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin: 8px 0;
+      color: #101b32;
+    }
+
+    .section-title p {
+      color: #65728a;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* FEATURES */
+    .features {
+      background: white;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e6edf7;
+      border-radius: 20px;
+      padding: 30px;
+      transition: .3s;
+      box-shadow: 0 8px 30px rgba(21,60,110,.06);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(21,60,110,.12);
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      background: #eaf5ff;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+    }
+
+    .card p {
+      color: #65728a;
+      font-size: 14px;
+    }
+
+    /* BENEFITS */
+    .benefits {
+      background: #f1f7ff;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .benefit {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 7px 25px rgba(21,60,110,.06);
+    }
+
+    .benefit-icon {
+      font-size: 30px;
+    }
+
+    .benefit h3 {
+      font-size: 16px;
+    }
+
+    /* PROMO */
+    .promo {
+      padding: 0 25px 90px;
+      background: #f1f7ff;
+    }
+
+    .promo-box {
+      max-width: 1150px;
+      margin: auto;
+      border-radius: 30px;
+      padding: 65px 40px;
+      text-align: center;
+      background: linear-gradient(135deg,#0d56c9,#27b5ff);
+      color: white;
+      box-shadow: 0 25px 50px rgba(18,97,214,.25);
+    }
+
+    .promo-box h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .promo-box p {
+      margin-bottom: 25px;
+      opacity: .9;
+    }
+
+    .promo .btn {
+      background: white;
+      color: #1261d6;
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .gallery-item {
+      height: 220px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg,#d9efff,#8acfff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
+    }
+
+    .gallery-item span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      background: linear-gradient(transparent,rgba(0,0,0,.7));
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    /* ABOUT */
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: linear-gradient(135deg,#1261d6,#27b5ff);
+      border-radius: 30px;
+      min-height: 330px;
+      display: grid;
+      place-items: center;
+      font-size: 100px;
+      box-shadow: 0 20px 40px rgba(18,97,214,.2);
+    }
+
+    .about-content h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .about-content p {
+      color: #65728a;
+      margin-bottom: 20px;
+    }
+
+    .school-points {
+      list-style: none;
+    }
+
+    .school-points li {
+      margin: 10px 0;
+      font-weight: 600;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #f1f7ff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 40px;
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg,#1261d6,#27b5ff);
+      color: white;
+      border-radius: 25px;
+      padding: 35px;
+    }
+
+    .contact-info h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .contact-info p {
+      margin: 15px 0;
+      opacity: .9;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 35px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(21,60,110,.07);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #dce5f0;
+      padding: 13px 15px;
+      border-radius: 12px;
+      font-family: inherit;
+      outline: none;
+      transition: .3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #1261d6;
+      box-shadow: 0 0 0 3px rgba(18,97,214,.08);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #101b32;
+      color: white;
+      padding: 50px 25px 20px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+    }
+
+    footer p, footer a {
+      color: #aab5c8;
+      font-size: 14px;
+    }
+
+    footer a {
+      display: block;
+      text-decoration: none;
+      margin: 8px 0;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #2b3850;
+      text-align: center;
+      color: #8d9ab0;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media(max-width:900px) {
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 25px;
+        display: none;
+        box-shadow: 0 10px 20px rgba(0,0,0,.08);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-container,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .feature-grid,
+      .benefit-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .about-box {
+        min-height: 250px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:600px) {
+
+      .nav-container {
+        padding: 12px 18px;
+      }
+
+      .logo {
+        font-size: 15px;
+      }
+
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .book {
+        width: 280px;
+        height: 370px;
+      }
+
+      .book h2 {
+        font-size: 28px;
+      }
+
+      .feature-grid,
+      .benefit-grid,
+      .gallery,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2,
+      .about-content h2,
+      .promo-box h2 {
+        font-size: 30px;
+      }
+
+      section {
+        padding: 65px 18px;
+      }
+
+      .promo {
+        padding: 0 18px 65px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+
+      <a href="#home" class="logo">
+        <span class="logo-icon">🎓</span>
+        <span>Sandipani H.S. School</span>
+      </a>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#smartbook">Smart Book</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">School</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="nav-btn" href="#contact">Enquire Now</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+
+      <div class="hero-content">
+
+        <span class="tag">📚 SMART EDUCATION • SMART FUTURE</span>
+
+        <h1>
+          Smart Class Book<br>
+          <span>स्मार्ट पढ़ाई की नई शुरुआत</span>
+        </h1>
+
+        <p>
+          Sandipani Higher Secondary School के साथ पढ़ाई को बनाएं
+          और भी आसान, रोचक और आधुनिक। Smart Class Book के माध्यम
+          से सीखने का नया अनुभव प्राप्त करें।
+        </p>
+
+        <div class="buttons">
+          <a href="#smartbook" class="btn btn-primary">
+            Explore Smart Book →
+          </a>
+
+          <a href="#contact" class="btn btn-secondary">
+            Enquire Now
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="book-area">
+
+        <div class="book">
+
+          <div class="book-small">
+            SANDIPANI HIGHER SECONDARY SCHOOL
+          </div>
+
+          <h2>
+            SMART<br>
+            CLASS<br>
+            BOOK
+          </h2>
+
+          <p>
+            Learn • Understand • Grow
+          </p>
+
+          <div class="book-icon">📖</div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SMART BOOK -->
+  <section id="smartbook" class="features">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>SMART CLASS BOOK</span>
+
+        <h2>पढ़ाई का स्मार्ट तरीका</h2>
+
+        <p>
+          Smart Class Book विद्यार्थियों को कठिन concepts को
+          आसान और रोचक तरीके से समझने में मदद करती है।
+        </p>
+
+      </div>
+
+
+      <div class="feature-grid">
+
+        <div class="card">
+          <div class="icon">📚</div>
+          <h3>Interactive Learning</h3>
+          <p>
+            पढ़ाई को अधिक interactive और interesting बनाने के लिए
+            आधुनिक learning approach.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Concept Based</h3>
+          <p>
+            केवल याद करने के बजाय concepts को समझकर सीखने में मदद।
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">💡</div>
+          <h3>Easy Understanding</h3>
+          <p>
+            कठिन topics को सरल और student-friendly तरीके से समझें।
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🧠</div>
+          <h3>Better Learning</h3>
+          <p>
+            Visual और practical learning के माध्यम से बेहतर learning
+            experience.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">👨‍🏫</div>
+          <h3>Teacher Friendly</h3>
+          <p>
+            Teachers के लिए classroom teaching को आसान और effective
+            बनाने में सहायक।
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">👨‍🎓</div>
+          <h3>Student Friendly</h3>
+          <p>
+            विद्यार्थियों के लिए सरल, आकर्षक और समझने में आसान
+            educational content.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BENEFITS -->
+  <section class="benefits" id="features">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>WHY SMART CLASS BOOK?</span>
+
+        <h2>इसके फायदे</h2>
+
+        <p>
+          आधुनिक शिक्षा के साथ विद्यार्थियों को बेहतर learning
+          experience देने के लिए।
+        </p>
+
+      </div>
+
+
+      <div class="benefit-grid">
+
+        <div class="benefit">
+          <div class="benefit-icon">📖</div>
+          <h3>Better Understanding</h3>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">🎯</div>
+          <h3>Concept Clarity</h3>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">💻</div>
+          <h3>Modern Education</h3>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">🧠</div>
+          <h3>Easy Revision</h3>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">⭐</div>
+          <h3>Engaging Learning</h3>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">🚀</div>
+          <h3>Smart Future</h3>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROMOTION -->
+  <div class="promo">
+
+    <div class="promo-box">
+
+      <h2>अब पढ़ाई सिर्फ किताबों तक सीमित नहीं!</h2>
+
+      <p>
+        Smart Class Book के साथ सीखिए Smart तरीके से।
+      </p>
+
+      <a href="#contact" class="btn">
+        Smart Class Book के बारे में जानें →
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- GALLERY -->
+  <section id="gallery">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>OUR LEARNING ENVIRONMENT</span>
+
+        <h2>Smart Learning Gallery</h2>
+
+        <p>
+          आधुनिक classroom और बेहतर learning environment की एक झलक।
+        </p>
+
+      </div>
+
+
+      <div class="gallery">
+
+        <div class="gallery-item">
+          🏫
+          <span>Smart Classroom</span>
+        </div>
+
+        <div class="gallery-item">
+          📚
+          <span>Smart Class Book</span>
+        </div>
+
+        <div class="gallery-item">
+          👨‍🎓
+          <span>Student Learning</span>
+        </div>
+
+        <div class="gallery-item">
+          👨‍🏫
+          <span>Teacher Guidance</span>
+        </div>
+
+        <div class="gallery-item">
+          💻
+          <span>Digital Learning</span>
+        </div>
+
+        <div class="gallery-item">
+          🎓
+          <span>Better Education</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT SCHOOL -->
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div class="about-box">
+          🎓
+        </div>
+
+        <div class="about-content">
+
+          <span class="tag">
+            ABOUT OUR SCHOOL
+          </span>
+
+          <h2>
+            Sandipani Higher Secondary School
+          </h2>
+
+          <p>
+            Sandipani Higher Secondary School विद्यार्थियों को
+            गुणवत्तापूर्ण शिक्षा और बेहतर learning environment
+            प्रदान करने के लिए आधुनिक शिक्षण पद्धतियों को अपनाता है।
+          </p>
+
+          <p>
+            Smart Class Book इसी दिशा में एक आधुनिक पहल है,
+            जिसका उद्देश्य learning को आसान, interesting और
+            student-friendly बनाना है।
+          </p>
+
+          <ul class="school-points">
+            <li>✓ Quality Education</li>
+            <li>✓ Modern Learning Methods</li>
+            <li>✓ Student-Friendly Environment</li>
+            <li>✓ Better Learning Experience</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>GET IN TOUCH</span>
+
+        <h2>Smart Class Book के लिए Enquiry करें</h2>
+
+        <p>
+          अधिक जानकारी के लिए नीचे दिया गया form भरें।
+        </p>
+
+      </div>
+
+
+      <div class="contact-grid">
+
+        <div class="contact-info">
+
+          <h2>Contact School</h2>
+
+          <p>
+            📍 Sandipani Higher Secondary School
+          </p>
+
+          <p>
+            📞 Phone: +91 XXXXX XXXXX
+          </p>
+
+          <p>
+            ✉️ Email: school@example.com
+          </p>
+
+          <p>
+            🕐 School Office: Monday – Saturday
+          </p>
+
+          <br>
+
+          <p>
+            Smart Class Book से संबंधित जानकारी के लिए
+            हमसे संपर्क करें।
+          </p>
+
+        </div>
+
+
+        <form class="contact-form" onsubmit="submitForm(event)">
+
+          <div class="form-group">
+
+            <label>Student / Parent Name</label>
+
+            <input
+              type="text"
+              id="name"
+              placeholder="अपना नाम लिखें"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Mobile Number</label>
+
+            <input
+              type="tel"
+              id="phone"
+              placeholder="मोबाइल नंबर"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Class</label>
+
+            <select id="className" required>
+
+              <option value="">Class चुनें</option>
+              <option>Class 1</option>
+              <option>Class 2</option>
+              <option>Class 3</option>
+              <option>Class 4</option>
+              <option>Class 5</option>
+              <option>Class 6</option>
+              <option>Class 7</option>
+              <option>Class 8</option>
+              <option>Class 9</option>
+              <option>Class 10</option>
+              <option>Class 11</option>
+              <option>Class 12</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Message</label>
+
+            <textarea
+              id="message"
+              placeholder="अपना संदेश लिखें..."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn btn-primary submit-btn">
+            Submit Enquiry →
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h3>🎓 Sandipani Higher Secondary School</h3>
+
+        <p>
+          Smart Class Book के साथ आधुनिक और बेहतर
+          learning experience की ओर एक कदम।
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Quick Links</h3>
+
+        <a href="#home">Home</a>
+        <a href="#smartbook">Smart Class Book</a>
+        <a href="#features">Features</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Contact</h3>
+
+        <p>📞 +91 XXXXX XXXXX</p>
+        <p>✉️ school@example.com</p>
+        <p>📍 School Address</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 Sandipani Higher Secondary School.
+      All Rights Reserved.
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /* MOBILE MENU */
+
+    function toggleMenu() {
+
+      document
+        .getElementById("navLinks")
+        .classList
+        .toggle("active");
+
+    }
+
+
+    /* CLOSE MENU AFTER CLICK */
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          document
+            .getElementById("navLinks")
+            .classList
+            .remove("active");
+
+        });
+
+      });
+
+
+    /* CONTACT FORM */
+
+    function submitForm(event) {
+
+      event.preventDefault();
+
+      const name =
+        document.getElementById("name").value;
+
+      alert(
+        "धन्यवाद " +
+        name +
+        "! आपकी enquiry successfully submit हो गई है।"
+      );
+
+      event.target.reset();
+
+    }
+
+  </script>
+
+</body>
+</html>
